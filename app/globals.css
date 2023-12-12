@@ -1,0 +1,323 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  box-sizing: border-box;
+}
+ 
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+ 
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+ 
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+ 
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+ 
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+ 
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+ 
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+ 
+    --radius: 0.5rem;
+  }
+ 
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+ 
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+ 
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+ 
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+ 
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+ 
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+ 
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+ 
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+ 
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+.logo-grediant {
+  background: -webkit-linear-gradient(right,#43cea2,#185a9d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.grediant {
+  background: -webkit-linear-gradient(right,#43cea2,#185a9d);
+}
+.button-grediant {
+  background: -webkit-linear-gradient(right,#43cea2,#185a9d);
+}
+.button-grediant:hover {
+  transform: scale(1.1);
+} 
+
+.shadow-user {
+  box-shadow: -1px 11px 16px 20px white;
+}
+.shadow-side {
+  background: white;
+  background: -moz-linear-gradient(top, white 0%, rgba(255, 255, 255, 0) 15%, rgba(255, 255, 255, 0) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, white), color-stop(15%, rgba(255, 255, 255, 0)), color-stop(100%, rgba(255, 255, 255, 0)));
+  background: -webkit-linear-gradient(top, white 0%, rgba(255, 255, 255, 0) 15%, rgba(255, 255, 255, 0) 100%);
+  background: -o-linear-gradient(top, white 0%, rgba(255, 255, 255, 0) 15%, rgba(255, 255, 255, 0) 100%);
+  background: -ms-linear-gradient(top, white 0%, rgba(255, 255, 255, 0) 15%, rgba(255, 255, 255, 0) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, from(white), color-stop(15%, rgba(255, 255, 255, 0)), to(rgba(255, 255, 255, 0)));
+  background: linear-gradient(to bottom, white 0%, rgba(255, 255, 255, 0) 15%, rgba(255, 255, 255, 0) 100%);
+}
+.shadow-side::before {
+  position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    content: '';
+    z-index: 1;
+    background: white;
+    background: -moz-linear-gradient(left, white 0%, white 35%, rgba(255, 255, 255, 0) 79%, rgba(255, 255, 255, 0) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, white), color-stop(35%, white), color-stop(79%, rgba(255, 255, 255, 0)), color-stop(100%, rgba(255, 255, 255, 0)));
+    background: -webkit-linear-gradient(left, white 0%, white 35%, rgba(255, 255, 255, 0) 79%, rgba(255, 255, 255, 0) 100%);
+    background: -o-linear-gradient(left, white 0%, white 35%, rgba(255, 255, 255, 0) 79%, rgba(255, 255, 255, 0) 100%);
+    background: -ms-linear-gradient(left, white 0%, white 35%, rgba(255, 255, 255, 0) 79%, rgba(255, 255, 255, 0) 100%);
+    background: -webkit-gradient(linear, left top, right top, from(white), color-stop(35%, white), color-stop(79%, rgba(255, 255, 255, 0)), to(rgba(255, 255, 255, 0)));
+    background: linear-gradient(to right, white 0%, white 35%, rgba(255, 255, 255, 0) 79%, rgba(255, 255, 255, 0) 100%);
+}
+.title {
+  position: relative ;
+  width:fit-content ;
+  margin-left: auto;
+  margin-right: auto;
+}
+.title::before {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: rgb(220 38 38);
+  top: 50%;
+  right: -30px;
+  transform: translateY(-50%);
+}
+.title::after {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: rgb(220 38 38);
+  top: 50%;
+  left: -30px;
+  transform: translateY(-50%);
+}
+
+.service {
+  height: 450px;
+  position: relative;
+  background-image: url(../assets/services1.jpg);
+  background-size: cover;
+  background-position: center center ;
+}
+.defualt {
+  height: 250px;
+}
+
+.service-vision {
+  height: 250px;
+  position: relative;
+  background-image: url(../assets/services2.jpg);
+  background-size: cover;
+  background-position: center center ;
+}
+.common {
+  background:url(../assets/commen.jpg)
+  no-repeat top center;
+  background-size: cover;
+  padding: 200px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* linear-gradient(rgba(0,0,0,0.562),rgba(0,0,0,0.562)), */
+}
+
+.hide {
+  transform: translateX(-800%);
+}
+.hide-left {
+  transform: translateX(800%);
+}
+.show {
+  transform: translateX(0%);
+}
+.zoomout {
+  transform: scale(0);
+}
+.zoomin {
+  transform: scale(1);
+}
+
+
+.bounceIn {
+  animation-duration: 7s;
+  animation-name: bounceIn ;
+}
+
+@keyframes bounceIn {
+  from,
+  20%,
+  40%,
+  60%,
+  80%,
+  to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  0% {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  20% {
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  40% {
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+  80% {
+    transform: scale3d(0.97, 0.97, 0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInRight {
+  animation-duration: 2s;
+  animation-name: fadeInRight;
+}
+
+
+@keyframes fadeInTopLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(-100%, -100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInTopLeft {
+  animation-duration: 2s;
+  animation-name: fadeInTopLeft;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+.fadeIn {
+  animation-duration: 3s;
+  animation-name: fadeIn;
+}
+
+@keyframes headShake {
+  0% {
+    transform: translateX(0);
+  }
+
+  6.5% {
+    transform: translateX(-6px) rotateY(-9deg);
+  }
+
+  18.5% {
+    transform: translateX(5px) rotateY(7deg);
+  }
+
+  31.5% {
+    transform: translateX(-3px) rotateY(-5deg);
+  }
+
+  43.5% {
+    transform: translateX(2px) rotateY(3deg);
+  }
+
+  50% {
+    transform: translateX(0);
+  }
+}
+
+.headShake {
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-name: headShake;
+}
