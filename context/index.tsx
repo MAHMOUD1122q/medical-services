@@ -3,7 +3,7 @@
 import { usePathname, useRouter } from "next/navigation";
 import { createContext, useEffect, useState } from "react";
 
-export const GlobalContext = createContext(null);
+export const GlobalContext : any = createContext(null);
 
 export default function GlobalState({ children } : {
   children : any ;
