@@ -13,6 +13,7 @@
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-popover": "^1.0.7",
     "@radix-ui/react-slider": "^1.1.2",
+    "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-toast": "^1.1.5",
     "animate.css": "^4.1.1",
     "aos": "^2.3.4",
@@ -20,7 +21,9 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "date-fns": "^2.30.0",
+    "firebase": "^10.7.1",
     "gsap": "^3.12.2",
+    "lodash": "^4.17.21",
     "lucide-react": "^0.290.0",
     "next": "14.0.0",
     "react": "^18",
@@ -33,6 +36,7 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.202",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
