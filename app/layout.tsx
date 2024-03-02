@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import { Toaster } from '@/components/ui/toaster'
 import GlobalState from '@/context'
+import Chat from '@/components/chat'
 
 
 export default function RootLayout({
@@ -19,7 +20,8 @@ export default function RootLayout({
         <Navbar/>
           <main>
             {children}
-            </main>
+            {/* <Chat/> */}
+          </main>
           <Toaster />
           <Footer/>
       </GlobalState>

@@ -1,13 +1,15 @@
 "use client";
 import Image from "next/image";
 import { User,Mail,Key } from "lucide-react";
-import img from "@/assets/Mobile-login-Cristina.jpg";
-import { usePathname, useRouter } from "next/navigation";
-import { useState } from "react";
+import ComponentLevelLoader from "@/components/Loader/componentlevel";
+import { useRouter } from "next/navigation";
+import { useContext, useState } from "react";
 import { useToast } from "@/components/ui/use-toast"
+import { GlobalContext } from "@/context";
 
 export default function Register() {
   const { toast } = useToast()
+  const {pageLevelLoader, setPageLevelLoader} = useContext(GlobalContext);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -15,6 +17,7 @@ export default function Register() {
   const router = useRouter();
 
   const register = async (e: any) => {
+    setPageLevelLoader(true);
     e.preventDefault();
     const data = await fetch("http://localhost:4000/api/auth/register",{
       method: "POST",
@@ -34,7 +37,9 @@ export default function Register() {
           title: finalData.message,
         })
         router.push("/login")
+        setPageLevelLoader(false);
     }else {
+      setPageLevelLoader(false);
         toast({
           variant:"destructive",
           title: finalData.message,
@@ -68,7 +73,7 @@ export default function Register() {
               <input
                 type="text"
                 placeholder=" Username "
-                className="px-8 border-[1px] w-[345px] h-10"
+                className="px-8 border-[1px] w-[345px] h-10 rounded-lg"
                 value={username}
                 name="username"
                 onChange={(e) => setUsername(e.target.value)}
@@ -82,7 +87,7 @@ export default function Register() {
               <input
                 type="email"
                 placeholder=" Email "
-                className="px-8 border-[1px] w-[345px] h-10"
+                className="px-8 border-[1px] w-[345px] h-10 rounded-lg"
                 value={email}
                 name="email"
                 onChange={(e) => setEmail(e.target.value)}
@@ -96,14 +101,23 @@ export default function Register() {
               <input
                 type="password"
                 placeholder="Password"
-                className="px-8 border-[1px] w-[345px] h-10"
+                className="px-8 border-[1px] w-[345px] h-10 rounded-lg"
                 value={password}
                 name="password"
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <button type="submit" className=" text-white py-2 px-[148px] mt-8 rounded-lg duration-700 button-grediant">
-              Register
+            <button type="submit" className=" text-white py-2 px-[148px] mt-8 rounded-lg duration-700 button-grediant max-w-[350px] w-full">
+            {pageLevelLoader ? (
+                      <ComponentLevelLoader
+                        text={"Registering"}
+                        color={"#ffffff"}
+                        loading={pageLevelLoader}
+                        size="10px"
+                      />
+                    ) : (
+                      "Register"
+                    )}
             </button>
           </form>
           <a
@@ -114,7 +128,7 @@ export default function Register() {
           </a>
         </div>
         <div className={` ml-24 duration-700 fadeInRight`}>
-          <Image src={img} alt="" width={800} height={100}  />
+          <Image src='/Mobile-login-Cristina.jpg' alt="" width={800} height={100}  />
         </div>
       </div>
     </>

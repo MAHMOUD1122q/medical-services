@@ -155,7 +155,7 @@
 .service {
   height: 450px;
   position: relative;
-  background-image: url(../assets/services1.jpg);
+  background-image: url(../public/services1.jpg);
   background-size: cover;
   background-position: center center ;
 }
@@ -166,12 +166,12 @@
 .service-vision {
   height: 250px;
   position: relative;
-  background-image: url(../assets/services2.jpg);
+  background-image: url(../public/services2.jpg);
   background-size: cover;
   background-position: center center ;
 }
 .common {
-  background:url(../assets/commen.jpg)
+  background:url(../public/commen.jpg)
   no-repeat top center;
   background-size: cover;
   padding: 200px 0;

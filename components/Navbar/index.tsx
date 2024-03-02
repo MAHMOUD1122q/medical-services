@@ -8,6 +8,7 @@ import {
   Menu,
   Settings,
   Pill,
+  CreativeCommons,
 } from "lucide-react";
 import {
   Popover,
@@ -130,23 +131,23 @@ export default function Navbar() {
           </li>
           <li
             className={` py-2 px-4 cursor-pointer duration-300 ${
-              pathname.endsWith("/contact") ? "text-[#185a9d]" : ""
+              pathname.endsWith("/tips") ? "text-[#185a9d]" : ""
             } hover:text-[#185a9d] flex items-center  ml-1 font-bold `}
-            onClick={() => router.push("/contact")}
+            onClick={() => router.push("/tips")}
           >
-            Contact <Phone className=" ml-1" />
+            Tips <CreativeCommons className=" ml-1" />
           </li>
         </ul>
         <Popover>
           <PopoverTrigger>
             {auth ? (
-              <Image src="/default.png" alt="avatar" height={50} width={50} />
+              <Image src="/default.png" alt="avatar" height={40} width={40} />
             ) : (
               <Image
                 src="/default_avatar.png"
                 alt="avatar"
-                height={50}
-                width={50}
+                height={40}
+                width={40}
               />
             )}
           </PopoverTrigger>
@@ -155,7 +156,7 @@ export default function Navbar() {
               <>
                 <button
                   className={` py-2 pl-4 cursor-pointer duration-300 hover:text-sky-700 hover:pl-5 block w-full text-left font-bold border-b-[1px]`}
-                  onClick={() => router.push("/my-profile")}
+                  onClick={() => router.push(`/my-profile/${isAuthUser.id}`)}
                 >
                   My profile
                 </button>

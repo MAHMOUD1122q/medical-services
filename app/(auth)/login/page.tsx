@@ -3,18 +3,20 @@
 import Image from "next/image";
 import { User, Key } from "lucide-react";
 import { useContext, useState } from "react";
-import img from "@/assets/Mobile-login-Cristina.jpg";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { toast } from "@/components/ui/use-toast";
 import { GlobalContext } from "@/context";
+import ComponentLevelLoader from "@/components/Loader/componentlevel";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const {setIsAuthUser} = useContext(GlobalContext)
+  const { setIsAuthUser, componentLevelLoader, setComponentLevelLoader } =
+    useContext(GlobalContext);
 
   const router = useRouter();
   const login = async (e: any) => {
+    setComponentLevelLoader({ loading: true, id: "" });
     e.preventDefault();
     const data = await fetch("http://localhost:4000/api/auth/login", {
       method: "POST",
@@ -27,24 +29,24 @@ export default function Login() {
         password: password,
       }),
     });
-    
-    const finalData = await data.json();
-    if(finalData.success) {
-        toast({
-          variant:"success",
-          title: finalData.message,
-        })
-        setIsAuthUser(finalData)
-        router.push("/")
-    }else {
-        toast({
-          variant:"destructive",
-          title: finalData.message,
-        })
-    }
-    
-  };
 
+    const finalData = await data.json();
+    if (finalData.success) {
+      toast({
+        variant: "success",
+        title: finalData.message,
+      });
+      setIsAuthUser(finalData);
+      router.push("/");
+      setComponentLevelLoader({ loading: false, id: "" });
+    } else {
+      setComponentLevelLoader({ loading: false, id: "" });
+      toast({
+        variant: "destructive",
+        title: finalData.message,
+      });
+    }
+  };
 
   return (
     <>
@@ -70,7 +72,7 @@ export default function Login() {
               <input
                 type="email"
                 placeholder=" Email "
-                className="px-8 border-[1px] w-[345px] h-10"
+                className="px-8 border-[1px] w-[345px] h-10 rounded-lg"
                 value={email}
                 name="email"
                 onChange={(e) => setEmail(e.target.value)}
@@ -84,14 +86,23 @@ export default function Login() {
               <input
                 type="password"
                 placeholder=" Password "
-                className="px-8 border-[1px] w-[345px] h-10"
+                className="px-8 border-[1px] w-[345px] h-10 rounded-lg"
                 value={password}
                 name="password"
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <button className=" text-white py-2 px-[150px] mt-8 duration-300 button-grediant">
-              Login
+            <button className=" text-white py-2 px-[100px] mt-8 rounded-lg duration-300 button-grediant max-w-[350px] w-full">
+              {componentLevelLoader && componentLevelLoader.loading ? (
+                <ComponentLevelLoader
+                  text={"Logging In"}
+                  color={"#ffffff"}
+                  loading={componentLevelLoader && componentLevelLoader.loading}
+                  size="10px"
+                />
+              ) : (
+                "Login"
+              )}
             </button>
           </form>
           <a
@@ -100,9 +111,15 @@ export default function Login() {
           >
             Return to home page &rarr;{" "}
           </a>
+          <a
+            className=" mt-4 block text-[#185a9d]"
+            onClick={() => router.push("/")}
+          >
+            
+          </a>
         </div>
         <div className={` ml-24 duration-700 fadeInRight`}>
-          <Image src={img} alt="" width={800} height={100} />
+          <Image src='/Mobile-login-Cristina.jpg' alt="" width={800} height={100} />
         </div>
       </div>
     </>

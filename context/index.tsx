@@ -1,19 +1,18 @@
 "use client";
+import { createContext,useState } from "react";
 
-import { usePathname, useRouter } from "next/navigation";
-import { createContext, useEffect, useState } from "react";
-
-export const GlobalContext : any = createContext(null);
+export const GlobalContext = createContext(null as any) ;
 
 export default function GlobalState({ children } : {
   children : any ;
 }) {
-  const [pageLevelLoader, setPageLevelLoader] = useState(true);
+  const [pageLevelLoader, setPageLevelLoader] = useState(false);
   const [componentLevelLoader, setComponentLevelLoader] = useState({
     loading: false,
     id: "",
   });
-  const [isAuthUser, setIsAuthUser] = useState({});
+  const [isAuthUser,setIsAuthUser]= useState({});
+  const [currentUpdatedProduct, setCurrentUpdatedProduct] = useState(null);
   return (
     <GlobalContext.Provider
       value={{
@@ -23,6 +22,8 @@ export default function GlobalState({ children } : {
         setIsAuthUser,
         componentLevelLoader,
         setComponentLevelLoader,
+        currentUpdatedProduct,
+        setCurrentUpdatedProduct,
       }}
     >
       {children}
