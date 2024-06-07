@@ -7,18 +7,17 @@ export default function SymptomsIntroduction() {
   const router = useRouter()
   return (
     <>
+      <title>symptomes</title>
       <CommenSection title="Check your" sub="symptoms-introduction" subtitle="" />
       <div className="flex py-8 mx-28">
         <div className="ml-12 mr-16 mt-6 flex ">
-         <div className="w-1 h-60 bg-slate-200/70 mr-2 relative">
+         <div className="w-1 h-36 bg-slate-200/70 mr-2 relative">
           <div className=" bg-green-600 w-1 h-10"/>
          </div>
          <div>
           <p className="mb-4">Introduction</p>
           <p className="mb-4 cursor-no-drop text-slate-600/50">Patient</p>
           <p className="mb-4 cursor-no-drop text-slate-600/50">Symptoms</p>
-          <p className="mb-4 cursor-no-drop text-slate-600/50">Regions</p>
-          <p className="mb-4 cursor-no-drop text-slate-600/50">Interview</p>
           <p className="mb-4 cursor-no-drop text-slate-600/50">Results</p>
          </div>
         </div>

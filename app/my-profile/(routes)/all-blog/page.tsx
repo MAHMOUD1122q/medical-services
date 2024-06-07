@@ -1,9 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { PencilIcon, Trash } from "lucide-react";
-import { useContext, useEffect, useState } from "react";
-import { cn } from "@/lib/utils";
-import Image from "next/image";
+import {useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "@/components/ui/use-toast";
 

@@ -11,7 +11,7 @@ const initialFormData = {
   mobile: "",
   email: "",
 };
-export default function ContactUs() {
+export default function Appointment() {
   const [formData, setFormData] = useState(initialFormData);
   const { id } = useParams();
   const searchParams = useSearchParams();

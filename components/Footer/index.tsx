@@ -4,9 +4,6 @@ import Image from "next/image";
 import {Phone , Mail, Map } from 'lucide-react';
 import { useRouter } from "next/navigation";
 
-
-
-
 export default function Footer() {
   const date = new Date().getFullYear();
   const router = useRouter();

@@ -13,35 +13,6 @@ import Image from "next/image";
 import ComponentLevelLoader from "@/components/Loader/componentlevel";
 import { GlobalContext } from "@/context";
 import { toast } from "@/components/ui/use-toast";
-import { useRouter } from "next/navigation";
-
-const modules = {
-  toolbar: [
-    [{ header: [1, 2, false] }],
-    ["bold", "italic", "underline", "strike", "blockquote"],
-    [
-      { list: "ordered" },
-      { list: "bullet" },
-      { indent: "-1" },
-      { indent: "+1" },
-    ],
-    ["link", "image"],
-    ["clean"],
-  ],
-};
-const formats = [
-  "header",
-  "bold",
-  "italic",
-  "underline",
-  "strike",
-  "blockquote",
-  "list",
-  "bullet",
-  "indent",
-  "link",
-  "image",
-];
 export default function AddMedicen() {
   const [img, setImg] = useState("");
   const [title, setTitle] = useState("");
@@ -51,7 +22,6 @@ export default function AddMedicen() {
   const [inputs, setInputs] = useState({} as any);
   const [imagesPreview, setImagesPreview] = useState("");
   const { pageLevelLoader, setPageLevelLoader } = useContext(GlobalContext);
-  const router = useRouter();
 
   useEffect(() => {
     img && uploadFile(img, "img");
@@ -111,10 +81,6 @@ export default function AddMedicen() {
       }
     );
   };
-  const imgPreview = (e: any) => {
-    setImagesPreview(img);
-  };
-
   const createNewmedicen = async (e: any) => {
     setPageLevelLoader(true);
     e.preventDefault();

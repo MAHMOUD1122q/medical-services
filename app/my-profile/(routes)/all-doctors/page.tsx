@@ -2,7 +2,6 @@
 
 import { PencilIcon, Trash } from "lucide-react";
 import { useEffect, useState } from "react";
-import { cn } from "@/lib/utils";
 import { toast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
 

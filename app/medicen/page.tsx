@@ -8,14 +8,13 @@ import _ from "lodash";
 import {
   Pagination,
   PaginationContent,
-  PaginationEllipsis,
   PaginationItem,
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
 
-export default function Medicen() {
+export default function Medicine() {
   const [medicens, setMedicens] = useState([]);
   const [search, setSearch] = useState([]);
   const [page, setPage] = useState(1);
